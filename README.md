@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+**************************************************************************
+Pasos para correr el desarrollo
+
+Pararse dentro de la carpeta "my-challenge" y correr con el comando "npm start""
+
+Luego puede llenar los campos del formulario y se listaran a continuacion en la tabla de la derecha.
+
+Los campos "First Name", "Last Name", "Address" son alfa numericos
+
+El campo "SSN"es sólo numerico y su formato se crea a medida que se completa.
