@@ -15,7 +15,7 @@ const Formulario = () => {
     const [list, setList] = useState([]);
     const [error, setError] = useState('');
     const [fail, setFail] = useState(false);
-    const [bottonAvtive, setBotonActive] = useState(false)
+    const [bottonAvtive, setBotonActive] = useState(true)
     const [fieldsUsed, setFieldsUsed] = useState(0)
     const [token, setToken] = useState('')
 
@@ -43,50 +43,50 @@ const Formulario = () => {
 
     const handleName = (e) => {
         setName(e.target.value);
-        if (!name.trim()) {
-            setFieldsUsed((fieldsUsed + 1))
+        // if (!name.trim()) {
+        //     setFieldsUsed((fieldsUsed + 1))
 
-        }
+        // }
 
 
-        if (fieldsUsed > 3) {
-            setBotonActive(true)
-        }
-        if (fieldsUsed < 3) {
-            setBotonActive(false)
-        }
+        // if (fieldsUsed > 3) {
+        //     setBotonActive(true)
+        // }
+        // if (fieldsUsed < 3) {
+        //     setBotonActive(false)
+        // }
     }
     const handleLastName = (e) => {
         setLastName(e.target.value);
-        if (!lastName.trim()) {
-            setFieldsUsed((fieldsUsed + 1))
+        // if (!lastName.trim()) {
+        //     setFieldsUsed((fieldsUsed + 1))
 
-        }
+        // }
 
 
-        if (fieldsUsed > 3) {
-            setBotonActive(true)
-        }
-        if (fieldsUsed < 3) {
-            setBotonActive(false)
-        }
+        // if (fieldsUsed > 3) {
+        //     setBotonActive(true)
+        // }
+        // if (fieldsUsed < 3) {
+        //     setBotonActive(false)
+        // }
     }
 
 
 
     const handleAddress = (e) => {
         setAddress(e.target.value);
-        if (!address.trim()) {
-            setFieldsUsed((fieldsUsed + 1))
+        // if (!address.trim()) {
+        //     setFieldsUsed((fieldsUsed + 1))
 
-        }
+        // }
 
-        if (fieldsUsed > 3) {
-            setBotonActive(true)
-        }
-        if (fieldsUsed < 3) {
-            setBotonActive(false)
-        }
+        // if (fieldsUsed > 3) {
+        //     setBotonActive(true)
+        // }
+        // if (fieldsUsed < 3) {
+        //     setBotonActive(false)
+        // }
 
     }
 
@@ -112,17 +112,17 @@ const Formulario = () => {
         else if (input.length >= 0) {
             setSsn(input)
         }
-        if (!ssn.trim()) {
-            setFieldsUsed((fieldsUsed + 1))
+        // if (!ssn.trim()) {
+        //     setFieldsUsed((fieldsUsed + 1))
 
-        }
+        // }
 
-        if (fieldsUsed > 3) {
-            setBotonActive(true)
-        }
-        if (fieldsUsed < 3) {
-            setBotonActive(false)
-        }
+        // if (fieldsUsed > 3) {
+        //     setBotonActive(true)
+        // }
+        // if (fieldsUsed < 3) {
+        //     setBotonActive(false)
+        // }
 
     }
 
@@ -133,7 +133,7 @@ const Formulario = () => {
         setSsn('')
         setFieldsUsed(0)
         setFail(false)
-        setBotonActive(false)
+        setBotonActive(true)
         setError('')
     }
 
@@ -144,31 +144,35 @@ const Formulario = () => {
         console.log(lastName)
         console.log(address)
         console.log(ssn)
-
+        //Valido que se haya ingresado un Nombre
         if (!name.trim()) {
             setFail(true)
+            setBotonActive(false)
             setError('Please introduce a First Name');
             return;
         }
-
+        //Valido que se haya ingresado un Apellido
         if (!lastName.trim()) {
             setFail(true)
+            setBotonActive(false)
             setError('Please introduce a Last Name');
             return;
         }
-
+        //Valido que se haya ingresado una direccion
         if (!address.trim()) {
             setFail(true)
+            setBotonActive(false)
             setError('Please introduce an Address');
             return;
         }
-
+        //Valido el largo correcto del SSN
         if (ssn.length < 11) {
             setFail(true)
+            setBotonActive(false)
             setError('Please introduce a valid SSN');
             return;
         }
-
+        //Recorro el listado para corroborar que no se repite el SSN
         const duplicated = list.findIndex((i) => i.ssn === ssn)
         if (duplicated !== -1) {
             setFail(true)
